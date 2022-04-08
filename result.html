@@ -240,7 +240,7 @@
             <ul>
                         <li>
                             <div class="part_title">
-                                <div class="time"><span class="coll_time">2022/4/6 2:02:01</span> （采样时间）</div>
+                                <div class="time"><span class="coll_time">2022/4/6 2:02:01</span>（采样时间）</div>
                                 <div class="result green"><div class="info">阴性</div></div>
                             </div>
                             <div class="list_bg">
@@ -373,7 +373,7 @@
             let time = moment().subtract(1,'days').format('YYYY/M/D') + ' 19:42:17';
             let { name, no } = JSON.parse(localStorage.getItem('info'))
             let { name: name2, no: no2 } = JSON.parse(localStorage.getItem('info'))
-            name2 = jx(name2, 0, 2)
+            name2 = jx(name2, 0, name2.length - 1)
             no2 = jx(no2, 3, 14)
             $('#name_full').text(name)
             $('#name').text(name2)
