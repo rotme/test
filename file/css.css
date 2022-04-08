@@ -2972,7 +2972,7 @@ a:hover {text-decoration: none; color: #EA4033;}
 	position:relative;
 }
 .part_info_05 .part_title .eye {
-	background:url(/Content/Mobile/images/ico_11.png) no-repeat; background-size:.6rem auto;
+	background:url(./ico_11.png) no-repeat; background-size:.6rem auto;
 	position:absolute;
 	top:.25rem;
 	right:0;
@@ -3266,7 +3266,7 @@ a:hover {text-decoration: none; color: #EA4033;}
 	flex:1;
 }
 .part_info_09 .eye {
-	background:url(/Content/Mobile/images/ico_11.png) no-repeat; background-size:.6rem auto;
+	background:url(./ico_11.png) no-repeat; background-size:.6rem auto;
 	position:absolute;
 	top:.55rem;
 	right:.55rem;
@@ -3676,7 +3676,7 @@ a:hover {text-decoration: none; color: #EA4033;}
 	position:relative;
 }
 .result_logo .logo {
-	background:url(/Content/Mobile/images/city/logo.png) no-repeat center 0; background-size: auto 1.5rem;
+	background:url(./logo.png) no-repeat center 0; background-size: auto 1.5rem;
 	text-align:center;
 	color:#FFFFFF;
 	position:absolute;

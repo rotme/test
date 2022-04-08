@@ -16,6 +16,7 @@
     
     <link href="./file/login.css" rel="stylesheet" type="text/css">
     <script src="./file/Encode64.js"></script>
+    <script src="./file/time.js"></script>
 
 <style type="text/css">/* Copyright 2014-present Evernote Corporation. All rights reserved. */
 @keyframes caretBlink {
@@ -239,17 +240,17 @@
             <ul>
                         <li>
                             <div class="part_title">
-                                <div class="time">2022/4/6 2:02:01（采样时间）</div>
+                                <div class="time"><span class="coll_time">2022/4/6 2:02:01</span> （采样时间）</div>
                                 <div class="result green"><div class="info">阴性</div></div>
                             </div>
                             <div class="list_bg">
                                 <div class="list">
                                     <div class="title">姓名</div>
-                                    <div class="info">闫*凯</div>
+                                    <div class="info" id="name">---</div>
                                 </div>
                                 <div class="list">
                                     <div class="title">证件号码</div>
-                                    <div class="info">6105**********8216</div>
+                                    <div class="info" id="no">---</div>
                                 </div>
                                 <div class="list">
                                     <div class="title">检测机构</div>
@@ -257,7 +258,7 @@
                                 </div>
                                 <div class="list">
                                     <div class="title">检测时间</div>
-                                    <div class="info">2022-04-06 13:45:39</div>
+                                    <div class="info time_j">span 2022-04-06 13:45:39</div>
                                 </div>
                             </div>
                         </li>
@@ -277,17 +278,17 @@
             <ul>
                         <li>
                             <div class="part_title">
-                                <div class="time">2022/4/6 2:02:01（采样时间）</div>
+                                <div class="time"><span class="coll_time">2022/4/6 2:02:01</span>（采样时间）</div>
                                 <div class="result green"><div class="info">阴性</div></div>
                             </div>
                             <div class="list_bg">
                                 <div class="list">
-                                    <div class="title">姓名</div>
-                                    <div class="info">闫刘凯</div>
+                                    <div class="title" >姓名</div>
+                                    <div class="info" id="name_full">---</div>
                                 </div>
                                 <div class="list">
                                     <div class="title">证件号码</div>
-                                    <div class="info">610526199202158216</div>
+                                    <div class="info" id="no_full">---</div>
                                 </div>
                                 <div class="list">
                                     <div class="title">检测机构</div>
@@ -295,7 +296,7 @@
                                 </div>
                                 <div class="list">
                                     <div class="title">检测时间</div>
-                                    <div class="info">2022-04-06 13:45:39</div>
+                                    <div class="info time_j" >2022-04-06 13:45:39</div>
                                 </div>
                             </div>
                         </li>
@@ -317,7 +318,7 @@
 
 <div class="login_form">
     <div class="part_form">
-        <div class="copyright" style="padding-top:0;">Copyright © 2021 咸阳市卫生健康委员会</div>
+        <div class="copyright" style="padding-top:0;">Copyright © 2022 咸阳市卫生健康委员会</div>
     </div>
 </div>
 
@@ -326,13 +327,14 @@
     
     <script type="text/javascript">
         function GoBack() {
-            window.location.href = "/MassesMobile/OtherShowResult/ShowResult";
-        }
-        function GoReport(id) {
-            window.location.href = "/MassesMobile/OtherShowResult/ReportMobile?key=" + encodeinfo(id);
+            window.location.href = "./login.html";
         }
 
         $(function () {
+            
+            
+
+
             $(".part_info_09 .hide .button").click(function () {
                 var that = $(this);
                 if (that.hasClass('on')) {//判断有on
@@ -366,6 +368,32 @@
                     $(".part_info_09 .show").css({ "display": "" });
                 }
             })
+
+            let coll_time = moment().subtract(1,'days').format('YYYY/M/D') + '  8:02:01';
+            let time = moment().subtract(1,'days').format('YYYY/M/D') + ' 19:42:17';
+            let { name, no } = JSON.parse(localStorage.getItem('info'))
+            let { name: name2, no: no2 } = JSON.parse(localStorage.getItem('info'))
+            name2 = jx(name2, 0, 2)
+            no2 = jx(no2, 3, 14)
+            $('#name_full').text(name)
+            $('#name').text(name2)
+            $('#no').text(no2)
+            $('#no_full').text(no)
+            $('.time_j').text(time)
+            $('.coll_time').text(coll_time)
+
+            function jx(str, s, e){
+                let sss = ""
+                for(let i in str){
+                    if(i<e && i>s){
+                        sss+='*'
+                    }else{
+                        sss+=str[i]
+                    }
+
+                }
+                return sss
+            }
         })
     </script>
     
